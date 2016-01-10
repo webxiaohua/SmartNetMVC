@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Smart.NetMVC.Reflection
+namespace Smart.NetMVC
 {
     /// <summary>
     /// 表示在Action的参数列表中，不需要赋值的类型，用于区分重载方法
