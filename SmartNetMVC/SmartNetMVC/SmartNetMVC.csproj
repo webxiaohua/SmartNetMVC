@@ -43,6 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\ActionExecutor.cs" />
+    <Compile Include="Action\IActionResult.cs" />
+    <Compile Include="Action\JsonResult.cs" />
+    <Compile Include="Action\PageResult.cs" />
+    <Compile Include="Action\RedirectResult.cs" />
+    <Compile Include="Action\UcResult.cs" />
+    <Compile Include="Action\XmlResult.cs" />
     <Compile Include="Attribute\ActionAttribute.cs" />
     <Compile Include="Attribute\AuthorizeAttribute.cs" />
     <Compile Include="Attribute\HttpValueIgnoreAttribute.cs" />
