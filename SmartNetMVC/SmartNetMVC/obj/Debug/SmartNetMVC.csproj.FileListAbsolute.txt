@@ -1,0 +1,4 @@
+F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\SmartNetMVC\bin\Debug\Smart.NetMVC.dll
+F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\SmartNetMVC\bin\Debug\Smart.NetMVC.pdb
+F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\SmartNetMVC\obj\Debug\Smart.NetMVC.dll
+F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\SmartNetMVC\obj\Debug\Smart.NetMVC.pdb
