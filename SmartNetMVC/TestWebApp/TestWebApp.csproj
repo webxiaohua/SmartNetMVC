@@ -69,9 +69,9 @@
     <Compile Include="TiuHttpHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartNetMVC\SmartNetMVC.csproj">
-      <Project>{BCB59911-D7B7-404C-932F-F6B4ADFFF9D7}</Project>
-      <Name>SmartNetMVC</Name>
+    <ProjectReference Include="..\SmartNetMVC2\SmartNetMVC2.csproj">
+      <Project>{56962E8A-12AC-4DD6-AE49-7AC3715D0570}</Project>
+      <Name>SmartNetMVC2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

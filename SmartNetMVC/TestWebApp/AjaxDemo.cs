@@ -9,7 +9,7 @@ namespace TestWebApp
 {
     public class AjaxDemo
     {
-        [Smart.NetMVC.Action(Verb = "post")]
+       
         public string GetMd5(string input)
         {
             if (input == null)

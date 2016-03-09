@@ -5,3 +5,10 @@ F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\TestWebApp\bin\S
 F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\TestWebApp\obj\Debug\TestWebApp.csprojResolveAssemblyReference.cache
 F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\TestWebApp\obj\Debug\TestWebApp.dll
 F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\TestWebApp\obj\Debug\TestWebApp.pdb
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\obj\Debug\ResolveAssemblyReference.cache
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\obj\Debug\TestWebApp.pdb
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\TestWebApp.dll
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\TestWebApp.pdb
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC2.dll
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC2.pdb
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\obj\Debug\TestWebApp.dll
