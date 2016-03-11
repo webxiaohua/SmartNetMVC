@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Text;
 using System.Security.Cryptography;
+using Smart.NetMVC;
 
 namespace TestWebApp
 {
     public class AjaxDemo
     {
-       
+        [Action]
         public string GetMd5(string input)
         {
             if (input == null)
