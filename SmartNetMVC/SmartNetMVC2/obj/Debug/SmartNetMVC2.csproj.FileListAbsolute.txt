@@ -1,0 +1,5 @@
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\SmartNetMVC2\bin\Debug\Smart.NetMVC2.dll
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\SmartNetMVC2\bin\Debug\Smart.NetMVC2.pdb
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\SmartNetMVC2\obj\Debug\ResolveAssemblyReference.cache
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\SmartNetMVC2\obj\Debug\Smart.NetMVC2.dll
+E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\SmartNetMVC2\obj\Debug\Smart.NetMVC2.pdb
