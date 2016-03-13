@@ -46,6 +46,7 @@
     <Compile Include="Core\ActionHandler.cs" />
     <Compile Include="Core\InitEngine.cs" />
     <Compile Include="Core\RequestHandleFactory.cs" />
+    <Compile Include="Extensions\JsonExtension.cs" />
     <Compile Include="Extensions\TypeExtension.cs" />
     <Compile Include="Models\ActionDescription.cs" />
     <Compile Include="Models\ControllerActionPair.cs" />

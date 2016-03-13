@@ -7,9 +7,9 @@ namespace TestWebApp
 {
     public class UserController
     {
-        public string Login(string name)
+        public string Login()
         {
-            return "Success" + name;
+            return "Success";
         }
     }
 }

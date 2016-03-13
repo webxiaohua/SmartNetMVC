@@ -14,3 +14,5 @@ E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC.dll
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC.pdb
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC2.dll
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC2.pdb
+F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC2.dll
+F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC2.pdb
