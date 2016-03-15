@@ -29,12 +29,22 @@ namespace Smart.NetMVC2
             SetVersionHeader(context);
             //调用Action方法
             object result = ExecuteActionInternal(context, vkInfo);
+            
             if (result != null)
             {
-                //处理方法返回结果
-                context.Response.ContentType = "text/plain";
-                context.Response.Write(result.ToString());
+                if (result is IActionResult)
+                {  //返回视图模型
+                    IActionResult executeResult = result as IActionResult;
+                    executeResult.Output(context);
+                }
+                else
+                {
+                    //处理方法返回结果
+                    context.Response.ContentType = "text/plain";
+                    context.Response.Write(result.ToString());
+                }
             }
+             
         }
 
         internal static object ExecuteActionInternal(HttpContext context, InvokeInfo vkInfo) {

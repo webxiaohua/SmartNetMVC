@@ -10,8 +10,6 @@ E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\obj\Debug\TestWebApp.pdb
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\TestWebApp.dll
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\TestWebApp.pdb
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\obj\Debug\TestWebApp.dll
-E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC.dll
-E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC.pdb
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC2.dll
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC2.pdb
 F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\TestWebApp\bin\Smart.NetMVC2.dll

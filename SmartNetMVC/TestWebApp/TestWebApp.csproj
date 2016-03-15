@@ -56,8 +56,10 @@
     <Content Include="content\1.htm" />
     <Content Include="content\js\jquery-1.4.4.min.js" />
     <Content Include="Defaults.aspx" />
+    <Content Include="FirstDemo.aspx" />
     <Content Include="Folder1\WebForm1.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="SecondDemo.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -70,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AjaxDemo.cs" />
+    <Compile Include="BasePageView.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Defaults.aspx.cs">
       <DependentUpon>Defaults.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,13 +101,12 @@
       <Project>{56962E8A-12AC-4DD6-AE49-7AC3715D0570}</Project>
       <Name>SmartNetMVC2</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartNetMVC\SmartNetMVC.csproj">
-      <Project>{BCB59911-D7B7-404C-932F-F6B4ADFFF9D7}</Project>
-      <Name>SmartNetMVC</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxDemo\GetMd5.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site1.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

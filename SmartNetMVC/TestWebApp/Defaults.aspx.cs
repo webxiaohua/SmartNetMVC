@@ -9,6 +9,7 @@ namespace TestWebApp
 {
     public partial class Default : System.Web.UI.Page
     {
+        public string Key = "0000000";
         protected void Page_Load(object sender, EventArgs e)
         {
             //string parameter = Page.RouteData.Values["parameter"] as string;

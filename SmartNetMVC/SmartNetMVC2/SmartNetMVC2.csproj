@@ -44,8 +44,17 @@
   <ItemGroup>
     <Compile Include="Core\ActionExecutor.cs" />
     <Compile Include="Core\ActionHandler.cs" />
+    <Compile Include="View\BaseMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Core\InitEngine.cs" />
+    <Compile Include="Core\PageExecutor.cs" />
+    <Compile Include="Core\PageResult.cs" />
     <Compile Include="Core\RequestHandleFactory.cs" />
+    <Compile Include="Core\ViewTypeParserFilter.cs" />
     <Compile Include="Extensions\JsonExtension.cs" />
     <Compile Include="Extensions\TypeExtension.cs" />
     <Compile Include="Models\ActionDescription.cs" />
@@ -57,6 +66,9 @@
     <Compile Include="Tool\ExceptionHelper.cs" />
     <Compile Include="Tool\ReflectionHelper.cs" />
     <Compile Include="Tool\UrlHelper.cs" />
+    <Compile Include="View\PageView.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
