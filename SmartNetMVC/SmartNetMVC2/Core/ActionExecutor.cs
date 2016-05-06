@@ -65,7 +65,8 @@ namespace Smart.NetMVC2
             if (action.Parameters == null || action.Parameters.Length == 0) {
                 return null;
             }
-            return null;
+            IActionParamProvider provider = ActionParametersProviderFactory.CreateActionParamProvider(context.Request);
+            return provider.GetParameters(context.Request, action);
         }
     }
 }

@@ -44,6 +44,11 @@
   <ItemGroup>
     <Compile Include="Core\ActionExecutor.cs" />
     <Compile Include="Core\ActionHandler.cs" />
+    <Compile Include="Core\Param\ActionParametersProviderFactory.cs" />
+    <Compile Include="Core\Param\FormDataProvider.cs" />
+    <Compile Include="Core\Param\IActionParamProvider.cs" />
+    <Compile Include="Core\Param\JsonDataProvider.cs" />
+    <Compile Include="Tool\ModelHelper.cs" />
     <Compile Include="View\BaseMasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
