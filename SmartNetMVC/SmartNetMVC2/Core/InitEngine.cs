@@ -13,8 +13,8 @@ namespace Smart.NetMVC2
     /// </summary>
     internal class InitEngine
     {
-        private static Dictionary<string, ControllerDescription> s_ControllerNameDict;//控制器集合
-        private static Dictionary<string, ActionDescription> s_ControllerActionDict;//Action 集合
+        public static Dictionary<string, ControllerDescription> s_ControllerNameDict { get; private set; }//控制器集合
+        public static Dictionary<string, ActionDescription> s_ControllerActionDict { get; private set; }//Action 集合
         // 用于从类型查找Action的反射标记
         private static readonly BindingFlags ActionBindingFlags =
             BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase;
@@ -24,6 +24,7 @@ namespace Smart.NetMVC2
         static InitEngine()
         {
             InitControllers();
+            //URLRoute.RegisterRoutes();//路由生成
         }
 
         /// <summary>
@@ -53,8 +54,9 @@ namespace Smart.NetMVC2
             {
                 foreach (MethodInfo m in controller.ControllerType.GetMethods(ActionBindingFlags))
                 {
+                    ActionAttribute actionAttr = m.GetMyAttribute<ActionAttribute>();
                     ActionDescription actionDescription =
-                            new ActionDescription(m) { PageController = controller };
+                            new ActionDescription(m, actionAttr) { PageController = controller };
                     s_ControllerActionDict.Add(controller.ControllerType.Name + "_" + m.Name, actionDescription);
                 }
             }
@@ -70,18 +72,25 @@ namespace Smart.NetMVC2
             if (string.IsNullOrEmpty(url))
                 throw new ArgumentNullException("url");
             url = url.StartsWith("/") ? url.Substring(1) : url;
-            url = url.Substring(0, url.IndexOf("."));
+            if (url.Contains('.'))
+                url = url.Substring(0, url.IndexOf("."));
             string[] controllerActionPair = url.Split('/');
             string controllerName = controllerActionPair[0] + "Controller";
             string actionName = controllerActionPair[1];
+            if (s_ControllerActionDict.ContainsKey(controllerName + "_" + actionName))
+            {
+                ActionDescription action = s_ControllerActionDict[controllerName + "_" + actionName];
 
-            ActionDescription action = s_ControllerActionDict[controllerName + "_" + actionName];
-
-            InvokeInfo vkInfo = new InvokeInfo();
-            vkInfo.Controller = action.PageController;
-            vkInfo.Action = action;
-            vkInfo.Instance = vkInfo.Controller.ControllerType.FastNew();
-            return vkInfo;
+                InvokeInfo vkInfo = new InvokeInfo();
+                vkInfo.Controller = action.PageController;
+                vkInfo.Action = action;
+                vkInfo.Instance = vkInfo.Controller.ControllerType.FastNew();
+                return vkInfo;
+            }
+            else
+            {
+                return null;
+            }
         }
 
     }

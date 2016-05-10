@@ -20,6 +20,7 @@ namespace TestWebApp
 
     public class UserController
     {
+        //[Action(Verb="POST")]
         public string Login()
         {
             return "Success";

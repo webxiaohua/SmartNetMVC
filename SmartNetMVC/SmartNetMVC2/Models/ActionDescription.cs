@@ -27,10 +27,13 @@ namespace Smart.NetMVC2
         /// </summary>
         public MethodInfo MethodInfo { get; private set; }
 
-        public ActionDescription(MethodInfo methodInfo) {
+        public ActionAttribute Attr { get; private set; }
+
+        public ActionDescription(MethodInfo methodInfo,ActionAttribute attr) {
             this.MethodInfo = methodInfo;
             this.Parameters = methodInfo.GetParameters();
             this.HasReturn = methodInfo.ReturnType != typeof(void);
+            this.Attr = attr;
         }
     }
 }

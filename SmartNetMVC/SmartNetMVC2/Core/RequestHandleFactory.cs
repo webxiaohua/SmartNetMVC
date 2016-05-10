@@ -19,9 +19,8 @@ namespace Smart.NetMVC2
         /// <returns></returns>
         public IHttpHandler GetHandler(HttpContext context, string requestType, string url, string pathTranslated)
         {
-            
             //验证路径是否为请求普通资源
-            if(url.EndsWith(".aspx"))
+            if (url.EndsWith(".aspx"))
             {
                 PageHandlerFactory factory = (PageHandlerFactory)Activator.CreateInstance(typeof(PageHandlerFactory), true);
                 IHttpHandler handler = factory.GetHandler(context, requestType, url, pathTranslated);
@@ -35,7 +34,10 @@ namespace Smart.NetMVC2
                 InvokeInfo vkInfo = InitEngine.GetInvokeInfo(vPath);
                 if (vkInfo == null)
                     ExceptionHelper.Throw404Exception(context);
+                if (vkInfo.Action.Attr != null && !vkInfo.Action.Attr.AllowExecute(context.Request.HttpMethod)) //限定谓词
+                    ExceptionHelper.Throw403Exception(context);
                 return ActionHandler.CreateHandler(vkInfo);
+
             }
         }
         /// <summary>
