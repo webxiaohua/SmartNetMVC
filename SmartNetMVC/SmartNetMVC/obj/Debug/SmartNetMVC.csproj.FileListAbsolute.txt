@@ -2,7 +2,6 @@ F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\SmartNetMVC\bin\
 F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\SmartNetMVC\bin\Debug\Smart.NetMVC.pdb
 F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\SmartNetMVC\obj\Debug\Smart.NetMVC.dll
 F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\SmartNetMVC\obj\Debug\Smart.NetMVC.pdb
-F:\SXH\GitWorkSpace\NetCode\SmartNetMVC\SmartNetMVC\SmartNetMVC\SmartNetMVC\obj\Debug\SmartNetMVC.csprojResolveAssemblyReference.cache
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\SmartNetMVC\bin\Debug\Smart.NetMVC.dll
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\SmartNetMVC\bin\Debug\Smart.NetMVC.pdb
 E:\SXH\GitProjects\SmartNetMVC\SmartNetMVC\SmartNetMVC\obj\Debug\ResolveAssemblyReference.cache

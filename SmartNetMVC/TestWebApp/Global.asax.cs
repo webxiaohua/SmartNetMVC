@@ -15,7 +15,8 @@ namespace TestWebApp
         protected void Application_Start(object sender, EventArgs e)
         {
             //RouteTable.Routes.MapPageRoute("User", "User/Login", "~/User/Login.cspx", false);
-            RouteTable.Routes.MapRoute("User", "User/Login", defaults: new { controller = "User", action = "Login" }, constraints: null, namespaces: null);
+            //RouteTable.Routes.MapRoute("User", "User/Login", defaults: new { controller = "User", action = "Login" }, constraints: null, namespaces: null);
+            URLRoute.RegisterRoutes();
         }
 
         protected void Session_Start(object sender, EventArgs e)

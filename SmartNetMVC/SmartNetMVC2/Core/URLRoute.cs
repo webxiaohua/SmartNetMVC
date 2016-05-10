@@ -18,6 +18,7 @@ namespace Smart.NetMVC2
         public static void RegisterRoutes()
         {
             RouteTable.Routes.MapRoute("User", "User/Login", defaults: new { controller = "User", action = "Login" }, constraints: null, namespaces: null);
+            RouteTable.Routes.MapRoute("User2", "User/GetSchool", defaults: new { controller = "User", action = "GetSchool" }, constraints: null, namespaces: null);
         }
     }
 }

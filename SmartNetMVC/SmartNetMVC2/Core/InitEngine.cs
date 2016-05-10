@@ -24,7 +24,6 @@ namespace Smart.NetMVC2
         static InitEngine()
         {
             InitControllers();
-            //URLRoute.RegisterRoutes();//路由生成
         }
 
         /// <summary>
