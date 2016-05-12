@@ -15,7 +15,7 @@ namespace Smart.NetMVC2
         /// 处理系统异常 Application_Error 调用
         /// </summary>
         /// <param name="ex"></param>
-        public static void ApplicationErrorHandle(Exception ex)
+        public static void ApplicationErrorHandle(Exception ex, Action<Exception> action)
         {
             HttpException httpEx = ex as HttpException;
             if (httpEx != null)
@@ -32,12 +32,12 @@ namespace Smart.NetMVC2
                 }
                 else
                 {
-                    HttpContext.Current.Response.Write("服务器内部错误");
+                    HttpContext.Current.Response.Write("服务器内部错误:" + httpEx.Message);
                 }
             }
             else
             {
-                HttpContext.Current.Response.Write("服务器内部错误");
+                action.Invoke(ex);
             }
             HttpContext.Current.Response.End();
         }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.Web.Compilation;
 using System.Collections;
+using System.Web.Routing;
 
 namespace Smart.NetMVC2
 {
@@ -70,6 +71,14 @@ namespace Smart.NetMVC2
         {
             if (string.IsNullOrEmpty(url))
                 throw new ArgumentNullException("url");
+            if (url == "/")
+            {
+                if (RouteTable.Routes["Default"] != null)
+                {
+                    //string a = ((Route)(RouteTable.Routes["Default"]));
+                    //url = url + ((Route)(RouteTable.Routes["Default"])).Defaults.Values["0"].ToString() + "/" + ((Route)(RouteTable.Routes["Default"])).Defaults.Values[1];
+                }
+            }
             url = url.StartsWith("/") ? url.Substring(1) : url;
             if (url.Contains('.'))
                 url = url.Substring(0, url.IndexOf("."));

@@ -38,7 +38,11 @@ namespace TestWebApp
         {
             //获取到HttpUnhandledException异常，这个异常包含一个实际出现的异常
             Exception ex = Server.GetLastError();
-            SysHook.ApplicationErrorHandle(ex);
+            Action<Exception> action = (a) =>
+            {
+                HttpContext.Current.Response.Write("服务器内部错误:" + a.Message);
+            };
+            SysHook.ApplicationErrorHandle(ex, action);
         }
 
         protected void Session_End(object sender, EventArgs e)

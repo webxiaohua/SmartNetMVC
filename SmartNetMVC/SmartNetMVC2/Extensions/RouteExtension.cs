@@ -27,11 +27,17 @@ namespace Smart.NetMVC2
             };
             //而这里的DataTokens仅仅只是作为附加的参数
             //作为后面搜索控制器时的一个条件
-            if (namespaces != null && namespaces.Length > 0) {
+            if (namespaces != null && namespaces.Length > 0)
+            {
                 route.DataTokens["Namespaces"] = namespaces;
             }
             routes.Add(name, route);
             return route;
+        }
+
+        public static void IgnoreRoute(this RouteCollection routes, string url)
+        {
+            routes.Add(new Route(url, new StopRoutingHandler()));
         }
     }
 }
