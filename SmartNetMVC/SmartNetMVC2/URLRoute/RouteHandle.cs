@@ -8,7 +8,7 @@ using System.Web.UI;
 
 namespace Smart.NetMVC2
 {
-    public class RouteHandler:IRouteHandler
+    public class RouteHandler : IRouteHandler
     {
         public System.Web.IHttpHandler GetHttpHandler(RequestContext requestContext)
         {
@@ -16,7 +16,8 @@ namespace Smart.NetMVC2
         }
     }
 
-    public class MvcHandler : IHttpHandler {
+    public class MvcHandler : IHttpHandler
+    {
 
         public bool IsReusable
         {
@@ -34,6 +35,7 @@ namespace Smart.NetMVC2
             }
             string requestPath = context.Request.Path;//请求路径
             string vPath = UrlHelper.GetRealVirtualPath(context);//去除虚拟目录后得到的请求路径
+            
             //尝试根据请求路径获取Action
             InvokeInfo vkInfo = InitEngine.GetInvokeInfo(vPath);
             if (vkInfo == null)
@@ -43,5 +45,5 @@ namespace Smart.NetMVC2
             ActionHandler.CreateHandler(vkInfo).ProcessRequest(context);
         }
     }
-    
+
 }

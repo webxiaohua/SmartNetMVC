@@ -21,6 +21,7 @@ namespace Smart.NetMVC2
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             RouteTable.Routes.MapRoute("Default", "{controller}/{action}", defaults: new { controller = "User", action = "Login" }, constraints: null, namespaces: null);
             */
+            
             foreach (string key in InitEngine.s_ControllerActionDict.Keys)
             {
                 string[] controllerAction = key.Split('_');
