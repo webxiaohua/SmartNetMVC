@@ -47,6 +47,7 @@
     <Compile Include="Attributes\ActionAttribute.cs" />
     <Compile Include="Core\ActionExecutor.cs" />
     <Compile Include="Core\ActionHandler.cs" />
+    <Compile Include="Core\BaseController.cs" />
     <Compile Include="Core\Param\ActionParametersProviderFactory.cs" />
     <Compile Include="Core\Param\FormDataProvider.cs" />
     <Compile Include="Core\Param\IActionParamProvider.cs" />

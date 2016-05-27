@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Reflection;
 
 namespace Smart.NetMVC2
 {
@@ -29,7 +30,7 @@ namespace Smart.NetMVC2
             SetVersionHeader(context);
             //调用Action方法
             object result = ExecuteActionInternal(context, vkInfo);
-            
+
             if (result != null)
             {
                 if (result is IActionResult)
@@ -44,10 +45,16 @@ namespace Smart.NetMVC2
                     context.Response.Write(result.ToString());
                 }
             }
-             
+
         }
 
-        internal static object ExecuteActionInternal(HttpContext context, InvokeInfo vkInfo) {
+        internal static object ExecuteActionInternal(HttpContext context, InvokeInfo vkInfo)
+        {
+            if (vkInfo.Instance is BaseController)
+            {
+                PropertyInfo propertyInfo = vkInfo.Instance.GetType().GetProperty("HttpContext");
+                propertyInfo.SetValue(vkInfo.Instance, context, null);
+            }
             //准备要传给调用方法的参数
             object[] parameters = GetActionCallParameters(context, vkInfo.Action);
             //调用方法
@@ -55,14 +62,17 @@ namespace Smart.NetMVC2
             {
                 return vkInfo.Action.MethodInfo.Invoke(vkInfo.Instance, parameters);
             }
-            else {
+            else
+            {
                 vkInfo.Action.MethodInfo.Invoke(vkInfo.Instance, parameters);
                 return null;
             }
         }
 
-        private static object[] GetActionCallParameters(HttpContext context, ActionDescription action) {
-            if (action.Parameters == null || action.Parameters.Length == 0) {
+        private static object[] GetActionCallParameters(HttpContext context, ActionDescription action)
+        {
+            if (action.Parameters == null || action.Parameters.Length == 0)
+            {
                 return null;
             }
             IActionParamProvider provider = ActionParametersProviderFactory.CreateActionParamProvider(context.Request);

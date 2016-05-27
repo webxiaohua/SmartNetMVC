@@ -9,7 +9,8 @@ namespace Smart.NetMVC2
     /// <summary>
     /// 动作执行返回结果
     /// </summary>
-    public interface IActionResult {
+    public interface IActionResult
+    {
         void Output(HttpContext context);
     }
 
@@ -35,12 +36,30 @@ namespace Smart.NetMVC2
         /// 输出视图结果
         /// </summary>
         /// <param name="context"></param>
-        public void Output(HttpContext context) { 
-            if(string.IsNullOrEmpty(this.VirtualPath))
+        public void Output(HttpContext context)
+        {
+            if (string.IsNullOrEmpty(this.VirtualPath))
                 this.VirtualPath = context.Request.FilePath;
             context.Response.ContentType = "text/html";
             string html = PageExecutor.Render(context, VirtualPath, Model);
             context.Response.Write(html);
+        }
+    }
+
+    public class RedirectResult : IActionResult
+    {
+        public string RedirectUrl { get; private set; }
+        public RedirectResult(string redirectUrl)
+        {
+            this.RedirectUrl = redirectUrl;
+        }
+        /// <summary>
+        /// 输出结果
+        /// </summary>
+        /// <param name="context"></param>
+        public void Output(HttpContext context)
+        {
+            context.Response.Redirect(RedirectUrl);
         }
     }
 }

@@ -7,7 +7,7 @@ using TestWebApp.Models;
 
 namespace TestWebApp.Controllers
 {
-    public class LoginController
+    public class LoginController : BaseController
     {
         public PageResult Index(string loginName, string loginPwd)
         {
@@ -17,7 +17,9 @@ namespace TestWebApp.Controllers
             }
             else
             {
-                return new PageResult("~/Views/Login.aspx", new LoginModel() { LoginName = loginName.ToString(), LoginPwd = loginPwd.ToString() });
+                LoginModel model = new LoginModel() { LoginName = loginName.ToString(), LoginPwd = loginPwd.ToString() };
+                this.HttpContext.Session["CurrentUser"] = model;
+                return new PageResult("~/Views/Login.aspx", model);
             }
         }
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Web.Routing;
 using System.Web;
 using System.Web.UI;
+using System.Web.SessionState;
 
 namespace Smart.NetMVC2
 {
@@ -16,7 +17,7 @@ namespace Smart.NetMVC2
         }
     }
 
-    public class MvcHandler : IHttpHandler
+    public class MvcHandler : IHttpHandler, IRequiresSessionState
     {
 
         public bool IsReusable

@@ -14,6 +14,7 @@ namespace TestWebApp
         {
             //string parameter = Page.RouteData.Values["parameter"] as string;
             //Response.Write(parameter);
+            Response.Redirect("AjaxTest.htm");
         }
     }
 }
