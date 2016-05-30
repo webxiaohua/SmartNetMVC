@@ -18,20 +18,27 @@ namespace TestWebApp
         public DateTime Time { get; set; }
     }
 
-    public class UserController
+    public class LoginsController : BaseController
     {
         //[Action(Verb="POST")]
         public string Login()
         {
+            this.HttpContext.Session["SmartMVC_Current_UserRole"] = new string[] { "admin", "employee" };
+            this.HttpContext.Session["SmartMVC_Current_UserIdentity"] = "admin";
             return "Success";
         }
+    }
 
+    [AllowRole(RoleList = new string[] { "admin", "manager" })]
+    public class UserController
+    {
+        //[AllowRole(RoleList = new string[] { "admin", "manager" })]
         public object GetUser()
         {
             User user = new User { Name = "Robin", Age = 23 };
             return new PageResult("/FirstDemo.aspx", user);
         }
-
+        [AllowUser(UserList = new string[] { "root" })]
         public object GetSchool(string name, DateTime time)
         {
 
@@ -40,4 +47,7 @@ namespace TestWebApp
             return new PageResult("/SecondDemo.aspx", school);
         }
     }
+
+
+
 }

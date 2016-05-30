@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ActionAttribute.cs" />
+    <Compile Include="Attributes\PremissionAttribute.cs" />
     <Compile Include="Core\ActionExecutor.cs" />
     <Compile Include="Core\ActionHandler.cs" />
     <Compile Include="Core\BaseController.cs" />
@@ -56,7 +57,9 @@
     <Compile Include="Core\URLRoute.cs" />
     <Compile Include="Extensions\MethodInfoExtension.cs" />
     <Compile Include="Extensions\RouteExtension.cs" />
+    <Compile Include="Tool\CacheHelper.cs" />
     <Compile Include="Tool\ModelHelper.cs" />
+    <Compile Include="Tool\StorageObject.cs" />
     <Compile Include="URLRoute\RouteHandle.cs" />
     <Compile Include="View\BaseMasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>

@@ -29,11 +29,18 @@ namespace Smart.NetMVC2
 
         public ActionAttribute Attr { get; private set; }
 
-        public ActionDescription(MethodInfo methodInfo,ActionAttribute attr) {
+        public AllowRoleAttribute AllowRole { get; private set; }
+
+        public AllowUserAttribute AllowUser { get; private set; }
+
+        public ActionDescription(MethodInfo methodInfo, ActionAttribute attr, AllowRoleAttribute allowRole, AllowUserAttribute allowUser)
+        {
             this.MethodInfo = methodInfo;
             this.Parameters = methodInfo.GetParameters();
             this.HasReturn = methodInfo.ReturnType != typeof(void);
             this.Attr = attr;
+            this.AllowRole = allowRole;
+            this.AllowUser = allowUser;
         }
     }
 }

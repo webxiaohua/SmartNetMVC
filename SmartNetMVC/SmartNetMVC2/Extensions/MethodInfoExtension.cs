@@ -22,8 +22,8 @@ namespace Smart.NetMVC2
 
             if (array.Length > 1)
                 throw new InvalidProgramException(string.Format("方法 {0} 不能同时指定多次 [{1}]。", m.Name, typeof(T)));
-
-            return default(T);
+            return null;
+            //return default(T);
         }
     }
 }

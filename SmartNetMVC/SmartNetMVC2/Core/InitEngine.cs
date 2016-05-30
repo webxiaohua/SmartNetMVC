@@ -44,7 +44,19 @@ namespace Smart.NetMVC2
                     if (t.IsClass == false)
                         continue;
                     if (t.Name.EndsWith("Controller"))
-                        controllerList.Add(new ControllerDescription(t));
+                    {
+                        AllowRoleAttribute allowRole = null;
+                        AllowUserAttribute allowUser = null;
+                        if (t.GetCustomAttributes(typeof(AllowRoleAttribute), false).Length != 0)
+                        {
+                            allowRole = (AllowRoleAttribute)t.GetCustomAttributes(typeof(AllowRoleAttribute), false)[0];
+                        }
+                        if (t.GetCustomAttributes(typeof(AllowUserAttribute), false).Length != 0)
+                        {
+                            allowUser = (AllowUserAttribute)t.GetCustomAttributes(typeof(AllowUserAttribute), false)[0];
+                        }
+                        controllerList.Add(new ControllerDescription(t, allowRole, allowUser));
+                    }
                 }
             }
             s_ControllerNameDict = controllerList.ToDictionary(x => x.ControllerType.Name, StringComparer.OrdinalIgnoreCase);
@@ -55,8 +67,9 @@ namespace Smart.NetMVC2
                 foreach (MethodInfo m in controller.ControllerType.GetMethods(ActionBindingFlags))
                 {
                     ActionAttribute actionAttr = m.GetMyAttribute<ActionAttribute>();
-                    ActionDescription actionDescription =
-                            new ActionDescription(m, actionAttr) { PageController = controller };
+                    AllowRoleAttribute allowRole = m.GetMyAttribute<AllowRoleAttribute>();
+                    AllowUserAttribute allowUser = m.GetMyAttribute<AllowUserAttribute>();
+                    ActionDescription actionDescription = new ActionDescription(m, actionAttr, allowRole, allowUser) { PageController = controller };
                     s_ControllerActionDict.Add(controller.ControllerType.Name + "_" + m.Name, actionDescription);
                 }
             }
@@ -88,7 +101,6 @@ namespace Smart.NetMVC2
             if (s_ControllerActionDict.ContainsKey(controllerName + "_" + actionName))
             {
                 ActionDescription action = s_ControllerActionDict[controllerName + "_" + actionName];
-
                 InvokeInfo vkInfo = new InvokeInfo();
                 vkInfo.Controller = action.PageController;
                 vkInfo.Action = action;
