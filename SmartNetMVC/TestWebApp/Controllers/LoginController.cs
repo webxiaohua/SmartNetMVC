@@ -9,7 +9,7 @@ namespace TestWebApp.Controllers
 {
     public class LoginController : BaseController
     {
-        public PageResult Index(string loginName, string loginPwd)
+        public PageResult IndexAction(string loginName, string loginPwd)
         {
             if (String.IsNullOrEmpty(loginName) || String.IsNullOrEmpty(loginPwd))
             {

@@ -21,7 +21,7 @@ namespace TestWebApp
     public class LoginsController : BaseController
     {
         //[Action(Verb="POST")]
-        public string Login()
+        public string LoginAction()
         {
             this.HttpContext.Session["SmartMVC_Current_UserRole"] = new string[] { "admin", "employee" };
             this.HttpContext.Session["SmartMVC_Current_UserIdentity"] = "admin";
@@ -33,13 +33,13 @@ namespace TestWebApp
     public class UserController
     {
         //[AllowRole(RoleList = new string[] { "admin", "manager" })]
-        public object GetUser()
+        public object GetUserAction()
         {
             User user = new User { Name = "Robin", Age = 23 };
             return new PageResult("/FirstDemo.aspx", user);
         }
         [AllowUser(UserList = new string[] { "root" })]
-        public object GetSchool(string name, DateTime time)
+        public object GetSchoolAction(string name, DateTime time)
         {
 
             //User user = new User { Name = name, Age = age };

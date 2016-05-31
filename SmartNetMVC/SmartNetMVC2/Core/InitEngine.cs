@@ -66,11 +66,14 @@ namespace Smart.NetMVC2
             {
                 foreach (MethodInfo m in controller.ControllerType.GetMethods(ActionBindingFlags))
                 {
-                    ActionAttribute actionAttr = m.GetMyAttribute<ActionAttribute>();
-                    AllowRoleAttribute allowRole = m.GetMyAttribute<AllowRoleAttribute>();
-                    AllowUserAttribute allowUser = m.GetMyAttribute<AllowUserAttribute>();
-                    ActionDescription actionDescription = new ActionDescription(m, actionAttr, allowRole, allowUser) { PageController = controller };
-                    s_ControllerActionDict.Add(controller.ControllerType.Name + "_" + m.Name, actionDescription);
+                    if (m.Name.EndsWith("Action"))
+                    {
+                        ActionAttribute actionAttr = m.GetMyAttribute<ActionAttribute>();
+                        AllowRoleAttribute allowRole = m.GetMyAttribute<AllowRoleAttribute>();
+                        AllowUserAttribute allowUser = m.GetMyAttribute<AllowUserAttribute>();
+                        ActionDescription actionDescription = new ActionDescription(m, actionAttr, allowRole, allowUser) { PageController = controller };
+                        s_ControllerActionDict.Add(controller.ControllerType.Name + "_" + m.Name, actionDescription);
+                    }
                 }
             }
         }
@@ -97,7 +100,7 @@ namespace Smart.NetMVC2
                 url = url.Substring(0, url.IndexOf("."));
             string[] controllerActionPair = url.Split('/');
             string controllerName = controllerActionPair[0] + "Controller";
-            string actionName = controllerActionPair[1];
+            string actionName = controllerActionPair[1] + "Action";
             if (s_ControllerActionDict.ContainsKey(controllerName + "_" + actionName))
             {
                 ActionDescription action = s_ControllerActionDict[controllerName + "_" + actionName];
