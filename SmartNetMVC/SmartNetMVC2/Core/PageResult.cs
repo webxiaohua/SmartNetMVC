@@ -46,6 +46,23 @@ namespace Smart.NetMVC2
         }
     }
 
+    /// <summary>
+    /// 输出JS
+    /// </summary>
+    public class JavaScriptResult : IActionResult
+    {
+        public string Content { get; set; }
+        public JavaScriptResult(string content)
+        {
+            this.Content = content;
+        }
+        public void Output(HttpContext context)
+        {
+            context.Response.ContentType = "text/javascript";
+            context.Response.Write(this.Content);
+        }
+    }
+
     public class RedirectResult : IActionResult
     {
         public string RedirectUrl { get; private set; }
