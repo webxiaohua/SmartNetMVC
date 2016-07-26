@@ -6,6 +6,7 @@ using System.Web.Routing;
 
 namespace Smart.NetMVC2
 {
+   
     /// <summary>
     /// @Author:robin
     /// @Desc:mvc 路由控制

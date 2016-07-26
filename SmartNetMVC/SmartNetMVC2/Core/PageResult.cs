@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace Smart.NetMVC2
 {
@@ -77,6 +78,53 @@ namespace Smart.NetMVC2
         public void Output(HttpContext context)
         {
             context.Response.Redirect(RedirectUrl);
+        }
+    }
+
+    /// <summary>
+    /// 输出文本结果
+    /// </summary>
+    public class TextResult : IActionResult
+    {
+        public Encoding Encoding { get; set; }
+        public string Text { get; set; }
+        public TextResult(string text)
+        {
+            this.Text = text;
+        }
+        public TextResult(string text, Encoding encoding)
+        {
+            this.Text = text;
+            this.Encoding = encoding;
+        }
+        /// <summary>
+        /// 输出结果
+        /// </summary>
+        /// <param name="context"></param>
+        public void Output(HttpContext context)
+        {
+            if (Encoding != null)
+                context.Response.ContentEncoding = Encoding;
+            context.Response.Write(Text);
+        }
+    }
+
+    public class JsonResult : IActionResult
+    {
+        public object JsonObj { get; set; }
+        public JsonResult(object jsonObj)
+        {
+            this.JsonObj = jsonObj;
+        }
+        /// <summary>
+        /// 输出结果
+        /// </summary>
+        /// <param name="context"></param>
+        public void Output(HttpContext context)
+        {
+            context.Response.ContentType = "text/json";
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+            context.Response.Write(jss.Serialize(JsonObj));
         }
     }
 }

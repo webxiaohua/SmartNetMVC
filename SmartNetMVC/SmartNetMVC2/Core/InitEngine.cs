@@ -72,7 +72,7 @@ namespace Smart.NetMVC2
                         AllowRoleAttribute allowRole = m.GetMyAttribute<AllowRoleAttribute>();
                         AllowUserAttribute allowUser = m.GetMyAttribute<AllowUserAttribute>();
                         ActionDescription actionDescription = new ActionDescription(m, actionAttr, allowRole, allowUser) { PageController = controller };
-                        s_ControllerActionDict.Add(controller.ControllerType.Name + "_" + m.Name, actionDescription);
+                        s_ControllerActionDict.Add(controller.ControllerType.Name.ToLower() + "_" + m.Name.ToLower(), actionDescription);
                     }
                 }
             }
@@ -99,8 +99,8 @@ namespace Smart.NetMVC2
             if (url.Contains('.'))
                 url = url.Substring(0, url.IndexOf("."));
             string[] controllerActionPair = url.Split('/');
-            string controllerName = controllerActionPair[0] + "Controller";
-            string actionName = controllerActionPair[1] + "Action";
+            string controllerName = (controllerActionPair[0] + "Controller").ToLower();
+            string actionName = (controllerActionPair[1] + "Action").ToLower();
             if (s_ControllerActionDict.ContainsKey(controllerName + "_" + actionName))
             {
                 ActionDescription action = s_ControllerActionDict[controllerName + "_" + actionName];

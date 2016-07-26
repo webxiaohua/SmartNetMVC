@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Attributes\ActionAttribute.cs" />
     <Compile Include="Attributes\PremissionAttribute.cs" />
+    <Compile Include="Const\PubConst.cs" />
     <Compile Include="Core\ActionExecutor.cs" />
     <Compile Include="Core\ActionHandler.cs" />
     <Compile Include="Core\BaseController.cs" />
@@ -57,7 +58,9 @@
     <Compile Include="Core\URLRoute.cs" />
     <Compile Include="Extensions\MethodInfoExtension.cs" />
     <Compile Include="Extensions\RouteExtension.cs" />
+    <Compile Include="PubInvoke\Auth.cs" />
     <Compile Include="Tool\CacheHelper.cs" />
+    <Compile Include="Tool\EncryptHelper.cs" />
     <Compile Include="Tool\ModelHelper.cs" />
     <Compile Include="Tool\StorageObject.cs" />
     <Compile Include="URLRoute\RouteHandle.cs" />
@@ -87,9 +90,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

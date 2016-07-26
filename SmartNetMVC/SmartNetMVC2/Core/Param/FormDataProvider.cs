@@ -8,7 +8,7 @@ using System.Collections.Specialized;
 
 namespace Smart.NetMVC2
 {
-    internal class FormDataProvider:IActionParamProvider
+    internal class FormDataProvider : IActionParamProvider
     {
         public object[] GetParameters(HttpRequest request, ActionDescription action)
         {
@@ -29,7 +29,8 @@ namespace Smart.NetMVC2
                     else if (string.Compare(p.Name, "QueryString", StringComparison.OrdinalIgnoreCase) == 0)
                         parameters[i] = request.QueryString;
                 }
-                else {
+                else
+                {
                     Type paramterType = p.ParameterType.GetRealType();
                     //
                     if (paramterType.IsSupportableType())
@@ -39,15 +40,26 @@ namespace Smart.NetMVC2
                             parameters[i] = val;
                         else
                         {
-                            if (p.ParameterType.IsValueType && p.ParameterType.IsNullableType() == false)
+                            if (p.ParameterType.IsValueType || p.ParameterType.IsNullableType() == true)
+                            {
+
+                            }
+                            else if (p.ParameterType.FullName == "System.String")
+                            {
+
+                            }
+                            else
+                            {
                                 throw new ArgumentException("未能找到指定的参数值：" + p.Name);
+                            }
                         }
                     }
-                    else {
+                    else
+                    {
                         // 自定义的类型。首先创建实例，然后给所有成员赋值。  暂不支持
                         // 注意：这里不支持嵌套类型的自定义类型。
                         //object item = Activator.CreateInstance(paramterType);
-                        
+
                     }
                 }
             }
