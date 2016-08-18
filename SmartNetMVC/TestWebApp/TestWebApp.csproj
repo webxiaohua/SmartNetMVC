@@ -78,6 +78,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\TestInjectorController.cs" />
     <Compile Include="Defaults.aspx.cs">
       <DependentUpon>Defaults.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

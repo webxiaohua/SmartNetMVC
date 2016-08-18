@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AOP\IInjector.cs" />
     <Compile Include="Attributes\ActionAttribute.cs" />
     <Compile Include="Attributes\PremissionAttribute.cs" />
     <Compile Include="Const\PubConst.cs" />

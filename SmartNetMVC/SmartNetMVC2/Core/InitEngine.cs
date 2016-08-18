@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Web.Compilation;
 using System.Collections;
 using System.Web.Routing;
+using Smart.NetMVC2.AOP;
 
 namespace Smart.NetMVC2
 {
@@ -47,6 +48,7 @@ namespace Smart.NetMVC2
                     {
                         AllowRoleAttribute allowRole = null;
                         AllowUserAttribute allowUser = null;
+                        IControllerInjector injector = null;
                         if (t.GetCustomAttributes(typeof(AllowRoleAttribute), false).Length != 0)
                         {
                             allowRole = (AllowRoleAttribute)t.GetCustomAttributes(typeof(AllowRoleAttribute), false)[0];
@@ -55,7 +57,11 @@ namespace Smart.NetMVC2
                         {
                             allowUser = (AllowUserAttribute)t.GetCustomAttributes(typeof(AllowUserAttribute), false)[0];
                         }
-                        controllerList.Add(new ControllerDescription(t, allowRole, allowUser));
+                        if (t.GetCustomAttributes(typeof(IControllerInjector), false).Length != 0)
+                        {
+                            injector = (IControllerInjector)t.GetCustomAttributes(typeof(IControllerInjector), false)[0];
+                        }
+                        controllerList.Add(new ControllerDescription(t, allowRole, allowUser, injector));
                     }
                 }
             }

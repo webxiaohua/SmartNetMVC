@@ -52,6 +52,12 @@ namespace Smart.NetMVC2
                 switch (code)
                 {
                     case "200":
+                        //执行aop
+                        if (vkInfo.Controller.Injector != null)
+                        {
+                            vkInfo.Controller.ControllerContext = context;
+                            vkInfo.Controller.Injector.OnActionExecuting(vkInfo.Controller);
+                        }
                         ActionHandler.CreateHandler(vkInfo).ProcessRequest(context);
                         break;
                     case "403":
