@@ -56,7 +56,7 @@ namespace Smart.NetMVC2
                         if (vkInfo.Controller.Injector != null)
                         {
                             vkInfo.Controller.ControllerContext = context;
-                            vkInfo.Controller.Injector.OnActionExecuting(vkInfo.Controller);
+                            vkInfo.Controller.Injector.OnControllerExecuting(vkInfo.Controller);
                         }
                         ActionHandler.CreateHandler(vkInfo).ProcessRequest(context);
                         break;

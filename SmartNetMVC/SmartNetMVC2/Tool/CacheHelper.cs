@@ -6,7 +6,7 @@ using System.Web.Caching;
 using System.Collections;
 using System.Web;
 
-namespace Smart.NetMVC2
+namespace Smart.NetMVC2.Tool
 {
     /// <summary>
     /// 缓存操作类

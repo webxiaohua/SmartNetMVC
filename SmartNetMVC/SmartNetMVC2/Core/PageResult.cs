@@ -59,7 +59,7 @@ namespace Smart.NetMVC2
         }
         public void Output(HttpContext context)
         {
-            context.Response.ContentType = "text/javascript";
+            //context.Response.ContentType = "text/javascript";
             context.Response.Write(this.Content);
         }
     }

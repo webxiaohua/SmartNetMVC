@@ -18,6 +18,9 @@ namespace Smart.NetMVC2
 
             if (contentType.IndexOf("application/json", StringComparison.OrdinalIgnoreCase) >= 0)
                 return new JsonDataProvider();
+            if (contentType.IndexOf("application/octet-stream", StringComparison.OrdinalIgnoreCase) >= 0) {
+                return new BinaryDataProvider();
+            }
             // 默认还是表单的 key = vlaue格式。
             return new FormDataProvider();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
+using Smart.NetMVC2.AOP;
 
 namespace Smart.NetMVC2
 {
@@ -32,6 +33,10 @@ namespace Smart.NetMVC2
         public AllowRoleAttribute AllowRole { get; private set; }
 
         public AllowUserAttribute AllowUser { get; private set; }
+        /// <summary>
+        /// AOP注入器
+        /// </summary>
+        public IActionInjector Injector { get; set; }
 
         public ActionDescription(MethodInfo methodInfo, ActionAttribute attr, AllowRoleAttribute allowRole, AllowUserAttribute allowUser)
         {
@@ -41,6 +46,17 @@ namespace Smart.NetMVC2
             this.Attr = attr;
             this.AllowRole = allowRole;
             this.AllowUser = allowUser;
+        }
+
+        public ActionDescription(MethodInfo methodInfo, ActionAttribute attr, AllowRoleAttribute allowRole, AllowUserAttribute allowUser, IActionInjector injector)
+        {
+            this.MethodInfo = methodInfo;
+            this.Parameters = methodInfo.GetParameters();
+            this.HasReturn = methodInfo.ReturnType != typeof(void);
+            this.Attr = attr;
+            this.AllowRole = allowRole;
+            this.AllowUser = allowUser;
+            this.Injector = injector;
         }
     }
 }

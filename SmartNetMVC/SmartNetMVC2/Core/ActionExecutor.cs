@@ -26,11 +26,15 @@ namespace Smart.NetMVC2
                 throw new ArgumentNullException("context");
             if (vkInfo == null)
                 throw new ArgumentNullException("vkInfo");
+            if (vkInfo.Action.Injector != null)
+            {
+                //AOP执行
+                vkInfo.Action.Injector.OnActionExecuting(vkInfo.Action);
+            }
             //设置响应头
             SetVersionHeader(context);
             //调用Action方法
             object result = ExecuteActionInternal(context, vkInfo);
-
             if (result != null)
             {
                 if (result is IActionResult)
@@ -45,7 +49,16 @@ namespace Smart.NetMVC2
                     context.Response.Write(result.ToString());
                 }
             }
-
+            if (vkInfo.Action.Injector != null)
+            {
+                //AOP执行
+                vkInfo.Action.Injector.OnActionExecuted(vkInfo.Action);
+            }
+            if (vkInfo.Controller.Injector != null)
+            {
+                //AOP执行
+                vkInfo.Controller.Injector.OnControllerExecuted(vkInfo.Controller);
+            }
         }
 
         internal static object ExecuteActionInternal(HttpContext context, InvokeInfo vkInfo)

@@ -5,16 +5,17 @@ using System.Text;
 
 namespace Smart.NetMVC2.AOP
 {
-    public interface IActionInjector
+    public abstract class IActionInjector : Attribute
     {
-        void OnActionExecuting(ActionDescription actionContext);
+        public abstract void OnActionExecuting(ActionDescription actionContext);
 
-        void OnActionExecuted(ActionDescription actionContext);
+        public abstract void OnActionExecuted(ActionDescription actionContext);
     }
 
-    public interface IControllerInjector {
-        void OnActionExecuting(ControllerDescription controllerContext);
+    public abstract class IControllerInjector : Attribute
+    {
+        public abstract void OnControllerExecuting(ControllerDescription controllerContext);
 
-        void OnActionExecuted(ControllerDescription controllerContext);
+        public abstract void OnControllerExecuted(ControllerDescription controllerContext);
     }
 }

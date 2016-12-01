@@ -77,7 +77,8 @@ namespace Smart.NetMVC2
                         ActionAttribute actionAttr = m.GetMyAttribute<ActionAttribute>();
                         AllowRoleAttribute allowRole = m.GetMyAttribute<AllowRoleAttribute>();
                         AllowUserAttribute allowUser = m.GetMyAttribute<AllowUserAttribute>();
-                        ActionDescription actionDescription = new ActionDescription(m, actionAttr, allowRole, allowUser) { PageController = controller };
+                        IActionInjector injector = m.GetMyAttribute<IActionInjector>();
+                        ActionDescription actionDescription = new ActionDescription(m, actionAttr, allowRole, allowUser, injector) { PageController = controller };
                         s_ControllerActionDict.Add(controller.ControllerType.Name.ToLower() + "_" + m.Name.ToLower(), actionDescription);
                     }
                 }
