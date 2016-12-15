@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Script.Serialization;
+using System.IO;
 
 namespace Smart.NetMVC2
 {
@@ -125,6 +126,25 @@ namespace Smart.NetMVC2
             context.Response.ContentType = "text/json";
             JavaScriptSerializer jss = new JavaScriptSerializer();
             context.Response.Write(jss.Serialize(JsonObj));
+        }
+    }
+    /// <summary>
+    /// 输出图片结果
+    /// </summary>
+    public class ImageResult : IActionResult
+    {
+        public MemoryStream ObjMS { get; set; }
+        public ImageResult(MemoryStream objMS)
+        {
+            this.ObjMS = objMS;
+        }
+        public void Output(HttpContext context)
+        {
+            context.Response.ClearContent();
+            context.Response.ContentType = "image/jpeg";
+            context.Response.BinaryWrite(ObjMS.ToArray());
+            context.Response.Flush();
+            context.Response.End();
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="Core\BaseController.cs" />
     <Compile Include="Core\Param\ActionParametersProviderFactory.cs" />
     <Compile Include="Core\Param\BinaryDataProvider.cs" />
+    <Compile Include="Core\Param\FileDataProvider.cs" />
     <Compile Include="Core\Param\FormDataProvider.cs" />
     <Compile Include="Core\Param\IActionParamProvider.cs" />
     <Compile Include="Core\Param\JsonDataProvider.cs" />

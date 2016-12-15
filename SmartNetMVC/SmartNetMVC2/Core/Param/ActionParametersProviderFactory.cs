@@ -8,8 +8,10 @@ namespace Smart.NetMVC2
 {
     internal static class ActionParametersProviderFactory
     {
-        public static IActionParamProvider CreateActionParamProvider(HttpRequest request) {
-            if (request == null) {
+        public static IActionParamProvider CreateActionParamProvider(HttpRequest request)
+        {
+            if (request == null)
+            {
                 throw new ArgumentNullException("request");
             }
             string contentType = request.ContentType;
@@ -18,8 +20,13 @@ namespace Smart.NetMVC2
 
             if (contentType.IndexOf("application/json", StringComparison.OrdinalIgnoreCase) >= 0)
                 return new JsonDataProvider();
-            if (contentType.IndexOf("application/octet-stream", StringComparison.OrdinalIgnoreCase) >= 0) {
+            if (contentType.IndexOf("application/octet-stream", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
                 return new BinaryDataProvider();
+            }
+            if (contentType.IndexOf("multipart/form-data", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                return new FileDataProvider();
             }
             // 默认还是表单的 key = vlaue格式。
             return new FormDataProvider();
